@@ -1,5 +1,4 @@
 # Original: https://medium.com/@RareLoot/using-pushshifts-api-to-extract-reddit-submissions-fb517b286563
-import pandas as pd
 import requests
 import json
 import csv
@@ -36,7 +35,7 @@ def getAllComments(start, end, sub, query):
 
 def getAllMonthComments(year, month, sub, query):
     start = datetime(year, month, 1, 0, 0, 0, 0)
-    end = datetime((year + 1) if month is 12 else year, (month % 12 + 1), 1, 0, 0, 0, 0)
+    end = datetime((year + 1) if month == 12 else year, (month % 12 + 1), 1, 0, 0, 0, 0)
     return getAllComments(start, end, sub, query)
 
 def saveComments(comments, name):
