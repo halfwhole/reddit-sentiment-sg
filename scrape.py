@@ -1,3 +1,8 @@
+# Sentiment analysis tools
+# - Google Cloud: https://cloud.google.com/natural-language
+# - Pattern: https://github.com/clips/pattern
+# - Transformers/TextClassificationPipeline: https://huggingface.co/transformers/main_classes/pipelines.html#textclassificationpipeline
+
 # Original: https://medium.com/@RareLoot/using-pushshifts-api-to-extract-reddit-submissions-fb517b286563
 import requests
 import json
@@ -54,10 +59,9 @@ def getSaveAllMonthComments(year, month, sub='singapore', query=None):
     saveComments(monthComments, filename)
     print('saved to %s' % filename)
 
-# start = datetime(2020, 1, 1, 0, 0, 0, 0)
-# end   = datetime(2020, 8, 1, 0, 0, 0, 0)
-# wp  = getAllComments('wp',  start, end, 'singapore')
-# pap = getAllComments('pap', start, end, 'singapore')
 
-# Example:
-# getSaveAllMonthComments(2019, 4)
+if __name__ == '__main__':
+    # for year in [2018, 2019]:
+    #     for month in range(1, 13):
+    #         getSaveAllMonthComments(year, month)
+    pass
