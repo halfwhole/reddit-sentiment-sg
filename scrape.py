@@ -38,7 +38,7 @@ def getAllComments(start, end, sub, query):
         allComments += comments
     return allComments
 
-def getAllMonthComments(year, month, sub, query):
+def getAllMonthComments(year, month, sub='singapore', query=None):
     start = datetime(year, month, 1, 0, 0, 0, 0)
     end = datetime((year + 1) if month == 12 else year, (month % 12 + 1), 1, 0, 0, 0, 0)
     return getAllComments(start, end, sub, query)
@@ -46,11 +46,6 @@ def getAllMonthComments(year, month, sub, query):
 def saveComments(comments, name):
     with open(name, 'w') as f:
         json.dump(comments, f)
-
-def loadComments(name):
-    with open(name, 'r') as f:
-        comments = json.load(f)
-    return comments
 
 def getSaveAllMonthComments(year, month, sub='singapore', query=None):
     filename = 'comments-%d-%.2d.json' % (year, month)
@@ -64,4 +59,10 @@ if __name__ == '__main__':
     # for year in [2018, 2019]:
     #     for month in range(1, 13):
     #         getSaveAllMonthComments(year, month)
+    # comments202071 = getAllComments(datetime(2020, 7, 1, 0, 0, 0), datetime(2020, 7, 11, 0, 0, 0), 'singapore', None)
+    # comments202072 = getAllComments(datetime(2020, 7, 11, 0, 0, 0), datetime(2020, 7, 21, 0, 0, 0), 'singapore', None)
+    # comments202073 = getAllComments(datetime(2020, 7, 21, 0, 0, 0), datetime(2020, 8, 1, 0, 0, 0), 'singapore', None)
+    # saveComments(comments202071, 'data/comments-2020-07-1.json')
+    # saveComments(comments202072, 'data/comments-2020-07-2.json')
+    # saveComments(comments202073, 'data/comments-2020-07-3.json')
     pass
