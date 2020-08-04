@@ -7,6 +7,10 @@ verify_ssl = true
 
 [packages]
 vadersentiment = "*"
+pandas = "*"
+matplotlib = "*"
+nltk = "*"
+tqdm = "*"
 
 [requires]
 python_version = "3.6"
